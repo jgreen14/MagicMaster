@@ -1,0 +1,60 @@
+MOM Remake Notes
+-----------------
+
+-1st goal is to stay as faithful to the design of MOM as possible with
+improvements to UI and AI as the only significant changes
+
+
+Parts of MOM (essentially a list of base classes):
+
+1) Players
+	-Includes human and AI players
+	-Needs to contain all cities, spells, units and other attributes
+	like gold, mana, fame, spellbooks, controlled nodes, etc...
+
+	a) Global AI
+		-Evaluates an AI player's current global situation and decides on
+		what actions to take
+		-Some memory for each AI to track past moves and relationships
+		-Individual AI wizard personalities
+	b) Tactical AI
+		-Evaluates an AI player's tactical situation and takes action
+
+2) Units
+	-Must contain all the attributes shared by units (HP, mana, movement,
+	defense, attack, spells, special abilities, name, description, etc...)
+
+
+3) Cities
+	-Includes all the buildings, population, production levels, unit
+	production, enchantments, state of unrest, units occupying city,
+	etc...
+
+4) World
+	-Includes all the Players, cities, non-Player units, nodes,
+	"goodie huts", world map, global enchantments, global events, etc...
+
+5) Renderer
+	-Outputs the relevant data from the previous parts to the current screen
+	-List of screens:
+		01) World Map
+		02) Tactical Map
+		03) City
+		04) Spellbook
+		05) Diplomacy
+		06) Magic
+		07) Armies/Heroes
+
+6) I/O
+	-Takes input from human player and sends appropriate data to renderer
+	-Saves/loads current state of game to/from disk 
+
+
+How to procede:
+-Create human player class with unit and city lists and basic attributes
+-Create basic unit class and a couple melee units
+-Create City class with building list, population, production levels and
+units in city list
+-Create world class with basic map, player list and city list
+-Create Renderer with World Map and Tactical Map and basic city info
+-Create simple I/O for player input
