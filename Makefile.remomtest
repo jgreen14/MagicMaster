@@ -1,0 +1,16 @@
+all: remomtest
+
+remomtest: remomtest.o engine.o unit.o
+	g++ -o remomtest remomtest.o engine.o unit.o libsqlite3.a -lpthread -ldl
+
+remomtest.o: remomtest.cpp
+	g++ -c remomtest.cpp 
+
+engine.o: engine.cpp
+	g++ -c engine.cpp
+
+unit.o: unit.cpp
+	g++ -c unit.cpp
+
+clean:
+	rm -f remomtest remomtest.o engine.o unit.o
